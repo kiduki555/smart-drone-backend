@@ -1,0 +1,75 @@
+/**
+ * 예외 관련 상수 정의
+ */
+
+// HTTP 상태 코드
+export const HTTP_STATUS = {
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  CONFLICT: 409,
+  INTERNAL_SERVER_ERROR: 500,
+} as const;
+
+// 에러 메시지
+export const ERROR_MESSAGES = {
+  // 공통
+  INTERNAL_SERVER_ERROR: "서버 내부 오류가 발생했습니다",
+  VALIDATION_ERROR: "입력값이 올바르지 않습니다",
+
+  // 인증/인가
+  UNAUTHORIZED: "인증이 필요합니다",
+  FORBIDDEN: "접근 권한이 없습니다",
+  INVALID_TOKEN: "유효하지 않은 토큰입니다",
+  EXPIRED_TOKEN: "만료된 토큰입니다",
+
+  // 사용자
+  USER_NOT_FOUND: "사용자를 찾을 수 없습니다",
+  USER_ALREADY_EXISTS: "이미 존재하는 사용자입니다",
+  INVALID_CREDENTIALS: "잘못된 인증 정보입니다",
+
+  // 회사
+  COMPANY_NOT_FOUND: "회사를 찾을 수 없습니다",
+  COMPANY_ALREADY_EXISTS: "이미 존재하는 회사입니다",
+
+  // 계약
+  CONTRACT_NOT_FOUND: "계약을 찾을 수 없습니다",
+  CONTRACT_ALREADY_EXISTS: "이미 존재하는 계약입니다",
+
+  // 문서
+  DOCUMENT_NOT_FOUND: "문서를 찾을 수 없습니다",
+  DOCUMENT_ALREADY_EXISTS: "이미 존재하는 문서입니다",
+} as const;
+
+// 에러 코드
+export const ERROR_CODES = {
+  // 공통
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+
+  // 인증/인가
+  UNAUTHORIZED: "UNAUTHORIZED",
+  FORBIDDEN: "FORBIDDEN",
+  INVALID_TOKEN: "INVALID_TOKEN",
+  EXPIRED_TOKEN: "EXPIRED_TOKEN",
+
+  // 사용자
+  USER_NOT_FOUND: "USER_NOT_FOUND",
+  USER_ALREADY_EXISTS: "USER_ALREADY_EXISTS",
+  INVALID_CREDENTIALS: "INVALID_CREDENTIALS",
+
+  // 회사
+  COMPANY_NOT_FOUND: "COMPANY_NOT_FOUND",
+  COMPANY_ALREADY_EXISTS: "COMPANY_ALREADY_EXISTS",
+
+  // 계약
+  CONTRACT_NOT_FOUND: "CONTRACT_NOT_FOUND",
+  CONTRACT_ALREADY_EXISTS: "CONTRACT_ALREADY_EXISTS",
+
+  // 문서
+  DOCUMENT_NOT_FOUND: "DOCUMENT_NOT_FOUND",
+  DOCUMENT_ALREADY_EXISTS: "DOCUMENT_ALREADY_EXISTS",
+} as const;
