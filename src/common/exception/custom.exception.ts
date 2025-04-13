@@ -3,18 +3,10 @@
  */
 
 import { HttpException, HttpStatus } from "@nestjs/common";
-import {
-  ERROR_CODES,
-  ERROR_MESSAGES,
-  HTTP_STATUS,
-} from "../constants/exception.constants";
+import { ERROR_CODES, ERROR_MESSAGES, HTTP_STATUS } from "../constants/exception.constants";
 
 export class CustomException extends HttpException {
-  constructor(
-    message: string,
-    statusCode: number = HTTP_STATUS.INTERNAL_SERVER_ERROR,
-    errorCode: string = ERROR_CODES.INTERNAL_SERVER_ERROR
-  ) {
+  constructor(message: string, statusCode: number = HTTP_STATUS.INTERNAL_SERVER_ERROR, errorCode: string = ERROR_CODES.INTERNAL_SERVER_ERROR) {
     super(
       {
         statusCode,
@@ -22,7 +14,7 @@ export class CustomException extends HttpException {
         errorCode,
         timestamp: new Date().toISOString(),
       },
-      statusCode
+      statusCode,
     );
   }
 }

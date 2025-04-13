@@ -2,12 +2,7 @@
  * 응답 인터셉터
  */
 
-import {
-  Injectable,
-  NestInterceptor,
-  ExecutionContext,
-  CallHandler,
-} from "@nestjs/common";
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { LoggerService } from "../logger/logger.service";
@@ -22,10 +17,7 @@ export interface Response<T> {
 export class ResponseInterceptor<T> implements NestInterceptor<T, Response<T>> {
   constructor(private readonly logger: LoggerService) {}
 
-  intercept(
-    context: ExecutionContext,
-    next: CallHandler
-  ): Observable<Response<T>> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<Response<T>> {
     const request = context.switchToHttp().getRequest();
     const { method, url } = request;
 
@@ -44,7 +36,7 @@ export class ResponseInterceptor<T> implements NestInterceptor<T, Response<T>> {
           message: "성공적으로 처리되었습니다",
           timestamp: new Date().toISOString(),
         };
-      })
+      }),
     );
   }
 }

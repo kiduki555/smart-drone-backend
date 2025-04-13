@@ -10,19 +10,14 @@ import { ApiOperation, ApiResponse } from "@nestjs/swagger";
  * @param statusCode HTTP 상태 코드
  * @returns 데코레이터
  */
-export function ApiResponseDecorator(
-  summary: string,
-  description: string,
-  responseType: any,
-  statusCode: number = 200
-) {
+export function ApiResponseDecorator(summary: string, description: string, responseType: any, statusCode = 200) {
   return applyDecorators(
     ApiOperation({ summary }),
     ApiResponse({
       status: statusCode,
       description,
       type: responseType,
-    })
+    }),
   );
 }
 
@@ -33,11 +28,7 @@ export function ApiResponseDecorator(
  * @param statusCode HTTP 상태 코드
  * @returns 데코레이터
  */
-export function ApiErrorResponseDecorator(
-  summary: string,
-  description: string,
-  statusCode: number = 400
-) {
+export function ApiErrorResponseDecorator(summary: string, description: string, statusCode = 400) {
   return applyDecorators(
     ApiOperation({ summary }),
     ApiResponse({
@@ -51,6 +42,6 @@ export function ApiErrorResponseDecorator(
           error: { type: "string", example: "Bad Request" },
         },
       },
-    })
+    }),
   );
 }

@@ -10,12 +10,12 @@
  * @module EnvironmentConfig
  */
 
+import path from "path";
 import { config } from "dotenv";
-import { z } from "zod";
-import { validateConfig, configSchema } from "../validation/config.validator";
 import dotenv from "dotenv";
 import fs from "fs/promises";
-import path from "path";
+import { z } from "zod";
+import { configSchema, validateConfig } from "../validation/config.validator";
 
 // 환경 변수 로드
 config();
@@ -212,8 +212,6 @@ export function validateRequiredEnvVars(requiredVars: string[]): void {
   const missingVars = requiredVars.filter((varName) => !process.env[varName]);
 
   if (missingVars.length > 0) {
-    throw new Error(
-      `필수 환경 변수가 누락되었습니다: ${missingVars.join(", ")}`
-    );
+    throw new Error(`필수 환경 변수가 누락되었습니다: ${missingVars.join(", ")}`);
   }
 }
